@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\commons-io\commons-io\2.4\commons-io-2.4.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\pre-dexed\debug\commons-io-2.4_b2955a73e8fdec69863902c786dced8321b28c5c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Lauren\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\pre-dexed\debug\library-2.4.0_0e6f6f6d48aa59b42d370bc8f04c0feb5f0ddc33.jar" />
+    </item>
+    <item
+        jar="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\exploded-aar\com.android.support\design\24.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="e195bd694d5389acfba27ff4fdfa64c4c65b2c05">
+        <dex dex="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\pre-dexed\debug\com.android.support-design-24.1.1_39b62d539d4e113990694f30abf0b9934d4774d7.jar" />
+    </item>
+    <item
+        jar="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.1.1_fc1efecdcc2567f2344c78eaa07a943b3864dd77.jar" />
+    </item>
+    <item
+        jar="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="f62e763609f65e47dc6c498760a4accf02776788">
+        <dex dex="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.1.1_48729439d5fed6c04d4ee6c488aeafb9355c7416.jar" />
+    </item>
+    <item
+        jar="C:\Users\Lauren\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpclient-android\4.3.5.1\eecbb0b998e77629862a13d957d552b3be58fc4e\httpclient-android-4.3.5.1.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="eecbb0b998e77629862a13d957d552b3be58fc4e">
+        <dex dex="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\pre-dexed\debug\httpclient-android-4.3.5.1_212336dbf022fa8bb482e45b81db2e7e6ddbd797.jar" />
+    </item>
+    <item
+        jar="C:\Users\Lauren\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\24.1.1\3af19f153122737b372622fa6c81dd11a1c6b999\support-annotations-24.1.1.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\pre-dexed\debug\support-annotations-24.1.1_63f5fff3a2b281883445c43913c285ee67d2152c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\libs\internal_impl-24.1.1.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\pre-dexed\debug\internal_impl-24.1.1_50e94b540245c4e8cb39b538624c0fc927a6b8f9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
+        <dex dex="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.1.1_d546509273ee4f476c5c558d73a9365b2c264972.jar" />
+    </item>
+    <item
+        jar="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
+        <dex dex="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.1.1_390a2042a57a39ef4de81ac2ec6cd9e03876d488.jar" />
+    </item>
+    <item
+        jar="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="787871951412550519b0222aba3c9df4cea49875">
+        <dex dex="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.1.1_49ad6fbcc4781e3ea539faa0530c22d396c085fc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\exploded-aar\com.github.blackfizz\eazegraph\1.2.2\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="2584bbecc58c666b0e064ebce64f67a46bfa2aba">
+        <dex dex="C:\Users\Lauren\Desktop\bookLog\app\build\intermediates\pre-dexed\debug\com.github.blackfizz-eazegraph-1.2.2_4ce1d32a06a4e0a9decec7d10c2b28a95adc6637.jar" />
+    </item>
+
+</items>
