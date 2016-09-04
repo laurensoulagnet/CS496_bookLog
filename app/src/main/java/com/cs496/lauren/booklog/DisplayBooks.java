@@ -3,6 +3,7 @@ package com.cs496.lauren.booklog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,7 +16,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import org.apache.commons.io.IOUtils;
+import org.eazegraph.lib.charts.BarChart;
+import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.charts.ValueLineChart;
+import org.eazegraph.lib.models.BarModel;
+import org.eazegraph.lib.models.PieModel;
 import org.eazegraph.lib.models.ValueLinePoint;
 import org.eazegraph.lib.models.ValueLineSeries;
 import org.json.JSONArray;
@@ -29,6 +34,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class DisplayBooks extends AppCompatActivity {
@@ -73,16 +79,30 @@ public class DisplayBooks extends AppCompatActivity {
                     TextView errorSection = (TextView) findViewById(R.id.error_section);
                     errorSection.setVisibility(View.GONE);
 
+                    //getting all charts and labels
                     ValueLineChart monthChart = (ValueLineChart) findViewById(R.id.month_chart);
-                    monthChart.setVisibility(View.VISIBLE);
                     TextView monthChartTitle = (TextView) findViewById(R.id.month_chart_title);
-                    monthChartTitle.setVisibility(View.VISIBLE);
+                    BarChart yearChart = (BarChart) findViewById(R.id.year_chart);
+                    TextView yearChartTitle = (TextView) findViewById(R.id.year_chart_title);
+                    PieChart genreChart = (PieChart) findViewById(R.id.genre_chart);
+                    TextView genreChartTitle = (TextView) findViewById(R.id.genre_chart_title);
+                    PieChart authorChart = (PieChart) findViewById(R.id.author_chart);
+                    TextView authorChartTitle = (TextView) findViewById(R.id.author_chart_title);
 
-                    //creating the month chart
-                    ValueLineSeries series = new ValueLineSeries();
-                    series.setColor(0xFF64a0ca);
+                    //setting genre array
+                    String[] genreArray = {"Action and Adventure", "Anthology", "Art", "Biography", "Children and Young Adult", "Comic and Graphic Novel", "Drama", "Fantasy", "Health", "History", "Horror", "How-To", "Mystery", "Poetry", "Religion, Spirituality, and New Age", "Romance", "Science", "Science Fiction", "Self Help","Travel", "Other"};
+                    boolean genreRecorded = false;//records whether there are any records with genres
 
-                    float monthlyReading[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+                    //declaring all containers for values used in charts
+                    float[] monthlyReading = new float[12];//12 months, all initialized to 0.0
+                    float[] yearlyReading = new float[120];//120 years between 1900 and 2020, all initialized to 0.0
+                    float[] genreReading = new float[genreArray.length];//all genres, all initialized to 0.0
+                    ArrayList authorReading = new ArrayList();//an array list, for a variable number of authors
+
+                    //creating month input series
+                    ValueLineSeries monthSeries = new ValueLineSeries();
+                    monthSeries.setColor(0xFF64a0ca);
 
                     //getting the books from the cache
                     SharedPreferences sharedPreferences = getSharedPreferences("BookLogPreferences", Context.MODE_PRIVATE);
@@ -118,25 +138,85 @@ public class DisplayBooks extends AppCompatActivity {
                                 }
 
                                 monthlyReading[calendar.get(Calendar.MONTH)] += 1;
+                                yearlyReading[calendar.get(Calendar.YEAR) - 1900] += 1;
                             }
+
+
+                            String currentGenre = null;
+                            if (currentBook.has("genre") && !currentBook.isNull("genre")) {
+
+                                try {
+                                    currentGenre = currentBook.getString("genre");
+                                } catch (JSONException e) {
+                                    //TODO:HANDLE EXCEPTION
+                                }
+
+                                for(int j = 0; j < genreArray.length; j++){
+                                    if(currentGenre.equals(genreArray[j])){
+                                        genreReading[j] += 1;
+                                        genreRecorded = true;
+                                    }
+                                }
+                            }
+
                         }
                     }
 
-                    series.addPoint(new ValueLinePoint("Jan", monthlyReading[0]));
-                    series.addPoint(new ValueLinePoint("Feb", monthlyReading[1]));
-                    series.addPoint(new ValueLinePoint("Mar", monthlyReading[2]));
-                    series.addPoint(new ValueLinePoint("Apr", monthlyReading[3]));
-                    series.addPoint(new ValueLinePoint("May", monthlyReading[4]));
-                    series.addPoint(new ValueLinePoint("Jun", monthlyReading[5]));
-                    series.addPoint(new ValueLinePoint("Jul", monthlyReading[6]));
-                    series.addPoint(new ValueLinePoint("Aug", monthlyReading[7]));
-                    series.addPoint(new ValueLinePoint("Sep", monthlyReading[8]));
-                    series.addPoint(new ValueLinePoint("Oct", monthlyReading[9]));
-                    series.addPoint(new ValueLinePoint("Nov", monthlyReading[10]));
-                    series.addPoint(new ValueLinePoint("Dec", monthlyReading[11]));
+                    //adding values to month chart
+                    monthSeries.addPoint(new ValueLinePoint("Jan", monthlyReading[0]));
+                    monthSeries.addPoint(new ValueLinePoint("Feb", monthlyReading[1]));
+                    monthSeries.addPoint(new ValueLinePoint("Mar", monthlyReading[2]));
+                    monthSeries.addPoint(new ValueLinePoint("Apr", monthlyReading[3]));
+                    monthSeries.addPoint(new ValueLinePoint("May", monthlyReading[4]));
+                    monthSeries.addPoint(new ValueLinePoint("Jun", monthlyReading[5]));
+                    monthSeries.addPoint(new ValueLinePoint("Jul", monthlyReading[6]));
+                    monthSeries.addPoint(new ValueLinePoint("Aug", monthlyReading[7]));
+                    monthSeries.addPoint(new ValueLinePoint("Sep", monthlyReading[8]));
+                    monthSeries.addPoint(new ValueLinePoint("Oct", monthlyReading[9]));
+                    monthSeries.addPoint(new ValueLinePoint("Nov", monthlyReading[10]));
+                    monthSeries.addPoint(new ValueLinePoint("Dec", monthlyReading[11]));
 
-                    monthChart.addSeries(series);
+                    monthChart.addSeries(monthSeries);
                     monthChart.startAnimation();
+                    monthChart.setVisibility(View.VISIBLE);
+                    monthChartTitle.setVisibility(View.VISIBLE);
+
+                    //adding values to year chart
+                    for(int i = 0; i < 120; i++) {
+                        //only adding values > 0
+                        if(yearlyReading[i] > 0) {
+                            yearChart.addBar(new BarModel(Integer.toString((int)(i + 1900)), yearlyReading[i], 0xFF64a0ca));
+                        }
+                    }
+
+                    yearChart.startAnimation();
+                    yearChart.setVisibility(View.VISIBLE);
+                    yearChartTitle.setVisibility(View.VISIBLE);
+
+                    //adding values to genre chart, if there are any
+                    if(genreRecorded == true) {
+                        for(int k = 0; k < genreArray.length; k++){
+                            if(genreReading[k] > 0) {
+                                genreChart.addPieSlice(new PieModel(genreArray[k], (int)genreReading[k], (0xFF64a0ca+ (k*300))));//separating colors by arbitrary distance, offset of base chart color
+                            }
+                        }
+
+                        genreChart.startAnimation();
+                        genreChart.setVisibility(View.VISIBLE);
+                        genreChartTitle.setVisibility(View.VISIBLE);
+                    }
+
+                    //adding values to author chart
+
+
+
+
+
+
+
+
+
+
                 }
             }
 

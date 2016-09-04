@@ -15,12 +15,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LogInSignUp extends AppCompatActivity {
 
@@ -229,6 +237,38 @@ public class LogInSignUp extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //TESTING GRAPHS
+        /*
+        BarChart chart = (BarChart) findViewById(R.id.chart);
+        List<BarEntry> entries = new ArrayList<>();
+        entries.add(new BarEntry(0f, 30f));
+        entries.add(new BarEntry(1f, 80f));
+        entries.add(new BarEntry(2f, 60f));
+        entries.add(new BarEntry(3f, 50f));
+        // gap of 2f
+        entries.add(new BarEntry(5f, 70f));
+        entries.add(new BarEntry(6f, 60f));
+
+        BarDataSet set = new BarDataSet(entries, "BarDataSet");
+        BarData data = new BarData(set);
+        data.setBarWidth(0.9f); // set custom bar width
+        chart.setData(data);
+        chart.setFitBars(true); // make the x-axis fit exactly all bars
+
+        chart.setDrawGridBackground(false);
+        chart.setEnabled(false);
+        chart.getAxisLeft().setDrawGridLines(false);
+        //chart.getXAxis().setDrawGridLines(false);
+        chart.getAxisRight().setDrawGridLines(false);
+        chart.setDescription("");
+        //chart.setBorderWidth(0);
+        chart.invalidate(); // refresh
+        */
+
+
+
+
+
         //setting tabs
         TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
         tabs.addTab(tabs.newTab().setText("Log In"));
@@ -254,7 +294,7 @@ public class LogInSignUp extends AppCompatActivity {
             text.setText(lastEmail);
         }
 
-        final int[] tabSelected = {0};//array overcomes needing to be declared final issue
+        final int[] tabSelected = {0};
 
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
